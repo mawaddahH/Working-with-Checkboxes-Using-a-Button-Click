@@ -14,7 +14,8 @@ public class ChromeWebDriverAss1W9D3 {
 
 	/**
 	 * Set up browser settings and open the application
-	 * @throws InterruptedException 
+	 * 
+	 * @throws InterruptedException
 	 */
 
 	@BeforeTest
@@ -33,45 +34,44 @@ public class ChromeWebDriverAss1W9D3 {
 	 * 
 	 * @throws InterruptedException
 	 */
-		@Test
-		public void LearnEnglishWebSite() throws InterruptedException {
-			
-			// check box 1
-			WebElement checkbox1 = driver.findElement(By.xpath("//input[@id='checkbox-1']"));
-			boolean isCheck1 = checkbox1.isSelected();
-			System.out.println("is check box 1 selected  "+isCheck1);
-			if(isCheck1) {
-				System.out.println("check box 1 is selected by default");
-			}
-			Thread.sleep(2000);
-			
-			// check box 2
-			WebElement checkbox2 = driver.findElement(By.xpath("//input[@id='checkbox-2']"));
-			boolean isCheck2 = checkbox2.isSelected();
-			System.out.println("is check box 2 selected  "+isCheck2);
-			if(isCheck2) {
-				System.out.println("check box 2 is selected by default");
-			}
-			else {
-				Actions action = new Actions(driver);
-				//Right click 
-				action.click(checkbox2).build().perform();
-				System.out.println("check box 2 is selected manally");
+	@Test
+	public void LearnEnglishWebSite() throws InterruptedException {
 
-			}
-			Thread.sleep(2000);
+		// check box 1
+		WebElement checkbox1 = driver.findElement(By.xpath("//input[@id='checkbox-1']"));
+		boolean isCheck1 = checkbox1.isSelected();
+		System.out.println("is check box 1 selected  " + isCheck1);
+		if (isCheck1) {
+			System.out.println("check box 1 is selected by default");
+		}
+		Thread.sleep(2000);
+
+		// check box 2
+		WebElement checkbox2 = driver.findElement(By.xpath("//input[@id='checkbox-2']"));
+		boolean isCheck2 = checkbox2.isSelected();
+		System.out.println("is check box 2 selected  " + isCheck2);
+		if (isCheck2) {
+			System.out.println("check box 2 is selected by default");
+		} else {
+			Actions action = new Actions(driver);
+			// Right click
+			action.click(checkbox2).build().perform();
+			System.out.println("check box 2 is selected manally");
 
 		}
-		
-		/**
-		 * Tear down the setup after test completes
-		 */
-		@AfterTest
-		public void terminateBrowser() {
-			// Close the browser
-			driver.close();
+		Thread.sleep(2000);
 
-			// Quite the selenium
-			driver.quit();
-		}
+	}
+
+	/**
+	 * Tear down the setup after test completes
+	 */
+	@AfterTest
+	public void terminateBrowser() {
+		// Close the browser
+		driver.close();
+
+		// Quite the selenium
+		driver.quit();
+	}
 }
